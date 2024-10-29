@@ -105,4 +105,3 @@ deploy:
   type: git
   repo: https://github.com/rorikonn/rorikonn.github.io.git
   branch: deploy
-  token: 
