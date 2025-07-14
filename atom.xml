@@ -3,11 +3,11 @@
   <title>Jimmyzou&#39;s Blog</title>
   
   
-  <link href="https://github.com/rorikonn/rorikonn.github.io/atom.xml" rel="self"/>
+  <link href="https://github.com/rorikonn/atom.xml" rel="self"/>
   
-  <link href="https://github.com/rorikonn/rorikonn.github.io/"/>
+  <link href="https://github.com/rorikonn/"/>
   <updated>2024-10-29T07:41:57.066Z</updated>
-  <id>https://github.com/rorikonn/rorikonn.github.io/</id>
+  <id>https://github.com/rorikonn/</id>
   
   <author>
     <name>jimmyzou</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://github.com/rorikonn/rorikonn.github.io/2024/10/29/hello-world/"/>
-    <id>https://github.com/rorikonn/rorikonn.github.io/2024/10/29/hello-world/</id>
+    <link href="https://github.com/rorikonn/2024/10/29/hello-world/"/>
+    <id>https://github.com/rorikonn/2024/10/29/hello-world/</id>
     <published>2024-10-29T12:13:10.017Z</published>
     <updated>2024-10-29T07:41:57.066Z</updated>
     
