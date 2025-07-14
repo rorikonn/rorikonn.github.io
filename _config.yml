@@ -3,22 +3,23 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Jimmyzou's Blog
-subtitle: ''
-description: ''
+title: jimmyzou
+subtitle: 'blog'
+description: 'tech otakus save the world'
 keywords:
 author: jimmyzou
 language: zh
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://github.com/rorikonn/rorikonn.github.io
+url: https://github.com/rorikonn
+root:
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+  trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: false # Set to false to remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
@@ -97,7 +98,19 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: geek
+theme: brewski
+theme_config:
+  logo:
+  google_analytics: UA-XXXXXXXX-X
+  copyright:
+    since: 2016
+    name: John Doe
+    url: https://www.example.org/john-doe
+  menu:
+    Home: /
+    About: /about
+    GitHub: https://github.com/tiaanduplessis
+    RSS: /atom.xml
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
