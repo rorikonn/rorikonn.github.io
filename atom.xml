@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Jimmyzou&#39;s Blog</title>
+  <title>jimmyzou</title>
   
-  
+  <subtitle>blog</subtitle>
   <link href="https://github.com/rorikonn/atom.xml" rel="self"/>
   
   <link href="https://github.com/rorikonn/"/>
