@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="index, follow"><title>Gameplay Task • Hexo</title><meta name="description" content="Gameplay Task - John Doe"><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="https://unpkg.com/nanoreset@3.0.1/nanoreset.min.css"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Hexo"><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head><body><div class="wrap" id="barba-wrapper"><header><h1 class="branding"><a href="/" title="Hexo">Hexo</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link no-barba" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/about" target="_self">ABOUT</a></li><li class="nav-list-item"><a class="nav-list-link no-barba" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"></ul></header><div class="barba-container"><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Gameplay Task</h1><div class="post-info"><a></a>2025-08-01</div><div class="post-content"><p>GameplayTask是UE中用于封装可重用游戏功能的基础类，开发者可以通过继承UGameplayTask基类并重写成员函数来实现自定义任务逻辑。该系统主要应用于两个场景：[[GAS系统]]和[[行为树|行为树]]。</p>
+<hr>
+<h3 id="1-核心概念"><a href="#1-核心概念" class="headerlink" title="1. 核心概念"></a><strong>1. 核心概念</strong></h3><p>GameplayTask机制的核心特点包括：</p>
+<ul>
+<li><p><strong>基于资源的互斥机制</strong>：两个资源需求交集非空的任务不能同时执行，它们之间形成互斥关系</p>
+</li>
+<li><p><strong>基于优先级的打断机制</strong>：不同优先级的互斥任务中，高优先级任务可以暂停低优先级任务，并在资源释放后恢复低优先级任务</p>
+</li>
+<li><p><strong>异步执行</strong>：任务可以在后台异步执行，不阻塞主线程</p>
+</li>
+</ul>
+<p>GameplayTask的核心类包括：</p>
+<ul>
+<li><p><code>UGameplayTask</code>：任务本身，包含业务逻辑实现</p>
+</li>
+<li><p><code>UK2Node_LatentGameplayTaskCall</code>：GameplayTask的蓝图节点</p>
+</li>
+<li><p><code>IGameplayTaskOwnerInterface</code>：GameplayTask所有者的抽象</p>
+</li>
+<li><p><code>UGameplayTaskComponent</code>：管理Actor拥有的所有GameplayTask实例，处理互斥和优先级逻辑</p>
+</li>
+<li><p><code>UGameplayTaskResource</code>：GameplayTask使用的“资源”概念的基类</p>
+</li>
+</ul>
+<hr>
+<h3 id="2-关键实现"><a href="#2-关键实现" class="headerlink" title="2. 关键实现"></a><strong>2. 关键实现</strong></h3></div></article></div></main><footer><div class="paginator"><a class="next" href="/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/MASS%E6%A1%86%E6%9E%B6/">next</a></div><div class="copyright"><p>&copy; 2025 <a href="https://github.com/rorikonn">Jimmy Zou</a><br>Powered by <a href="https://hexo.io/" rel="noreferrer" target="_blank">Hexo</a></p></div></footer></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+    Barba.Pjax.start()
+})</script></body></html>

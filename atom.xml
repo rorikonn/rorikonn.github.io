@@ -6,7 +6,7 @@
   <link href="https://github.com/rorikonn/atom.xml" rel="self"/>
   
   <link href="https://github.com/rorikonn/"/>
-  <updated>2024-10-29T07:41:57.066Z</updated>
+  <updated>2025-08-01T13:05:17.779Z</updated>
   <id>https://github.com/rorikonn/</id>
   
   <author>
@@ -17,22 +17,251 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://github.com/rorikonn/2024/10/29/hello-world/"/>
-    <id>https://github.com/rorikonn/2024/10/29/hello-world/</id>
-    <published>2024-10-29T12:13:10.017Z</published>
-    <updated>2024-10-29T07:41:57.066Z</updated>
+    <title>Gameplay Task</title>
+    <link href="https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/Gameplay%20Task/"/>
+    <id>https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/Gameplay%20Task/</id>
+    <published>2025-07-31T16:00:00.000Z</published>
+    <updated>2025-08-01T13:05:17.779Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>GameplayTask是UE中用于封装可重用游戏功能的基础类，开发者可以通过继承UGameplayTask基类并重写成员函数来实现自定义任务逻辑。该系统主要应用于两个场景：[[GAS系统]]和[[行为树|行为树]]。</p><hr><h3 id="1-核心概念"><a href="#1-核心概念" class="headerlink" title="1. 核心概念"></a><strong>1. 核心概念</strong></h3><p>GameplayTask机制的核心特点包括：</p><ul><li><p><strong>基于资源的互斥机制</strong>：两个资源需求交集非空的任务不能同时执行，它们之间形成互斥关系</p></li><li><p><strong>基于优先级的打断机制</strong>：不同优先级的互斥任务中，高优先级任务可以暂停低优先级任务，并在资源释放后恢复低优先级任务</p></li><li><p><strong>异步执行</strong>：任务可以在后台异步执行，不阻塞主线程</p></li></ul><p>GameplayTask的核心类包括：</p><ul><li><p><code>UGameplayTask</code>：任务本身，包含业务逻辑实现</p></li><li><p><code>UK2Node_LatentGameplayTaskCall</code>：GameplayTask的蓝图节点</p></li><li><p><code>IGameplayTaskOwnerInterface</code>：GameplayTask所有者的抽象</p></li><li><p><code>UGameplayTaskComponent</code>：管理Actor拥有的所有GameplayTask实例，处理互斥和优先级逻辑</p></li><li><p><code>UGameplayTaskResource</code>：GameplayTask使用的“资源”概念的基类</p></li></ul><hr><h3 id="2-关键实现"><a href="#2-关键实现" class="headerlink" title="2. 关键实现"></a><strong>2. 关键实现</strong></h3>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+    <summary type="html">&lt;p&gt;GameplayTask是UE中用于封装可重用游戏功能的基础类，开发者可以通过继承UGameplayTask基类并重写成员函数来实现自定义任务逻辑。该系统主要应用于两个场景：[[GAS系统]]和[[行为树|行为树]]。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;1-核心概念&quot;&gt;&lt;a</summary>
       
     
     
     
+    
+    <category term="虚幻引擎" scheme="https://github.com/rorikonn/tags/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MASS框架</title>
+    <link href="https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/MASS%E6%A1%86%E6%9E%B6/"/>
+    <id>https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/MASS%E6%A1%86%E6%9E%B6/</id>
+    <published>2025-07-31T16:00:00.000Z</published>
+    <updated>2025-08-01T13:05:30.359Z</updated>
+    
+    
+    
+    
+    
+    <category term="虚幻引擎" scheme="https://github.com/rorikonn/tags/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>八叉树</title>
+    <link href="https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%85%AB%E5%8F%89%E6%A0%91/"/>
+    <id>https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%85%AB%E5%8F%89%E6%A0%91/</id>
+    <published>2025-07-31T16:00:00.000Z</published>
+    <updated>2025-08-01T13:03:23.246Z</updated>
+    
+    
+    
+    
+    
+    <category term="数据结构" scheme="https://github.com/rorikonn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GAS系统-索敌</title>
+    <link href="https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/Gameplay%20Ability%20System/GAS%E7%B3%BB%E7%BB%9F-%E7%B4%A2%E6%95%8C/"/>
+    <id>https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/Gameplay%20Ability%20System/GAS%E7%B3%BB%E7%BB%9F-%E7%B4%A2%E6%95%8C/</id>
+    <published>2025-07-31T16:00:00.000Z</published>
+    <updated>2025-08-01T13:04:50.139Z</updated>
+    
+    
+    
+    
+    
+    <category term="虚幻引擎" scheme="https://github.com/rorikonn/tags/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E/"/>
+    
+    <category term="GAS" scheme="https://github.com/rorikonn/tags/GAS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GAS系统-输入</title>
+    <link href="https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/Gameplay%20Ability%20System/GAS%E7%B3%BB%E7%BB%9F-%E8%BE%93%E5%85%A5/"/>
+    <id>https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/Gameplay%20Ability%20System/GAS%E7%B3%BB%E7%BB%9F-%E8%BE%93%E5%85%A5/</id>
+    <published>2025-07-31T16:00:00.000Z</published>
+    <updated>2025-08-01T13:04:44.675Z</updated>
+    
+    <content type="html"><![CDATA[<p>GAS提供了一个可扩展的输入绑定机制，支持了包括输入绑定、输入同步、Confirm&#x2F;Cancel等机制。默认实现中只提供了基础框架，并没有默认的接入流程，所以需要一定的定制开发才能完全使用。</p><hr><h3 id="1-关联GA与InputID"><a href="#1-关联GA与InputID" class="headerlink" title="1. 关联GA与InputID"></a><strong>1. 关联GA与InputID</strong></h3><p>通过在<code>GiveAbility</code> 时，给 <code>FGameplayAbilitySpec</code> 指定 <code>InputID</code> 来实现。在UE的实例代码中，<code>UGameplayAbilitySet</code> 中包含了这个信息，其中的 <code>FGameplayAbilityBindInfo</code> 中包含了一个GA类与一个InputID。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">USTRUCT</span>()  </span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">FGameplayAbilityBindInfo</span>  </span><br><span class="line">&#123; </span><br><span class="line">    <span class="built_in">GENERATED_USTRUCT_BODY</span>()  </span><br><span class="line">     </span><br><span class="line">    <span class="built_in">UPROPERTY</span>(EditAnywhere, Category = BindInfo)  </span><br><span class="line">    TEnumAsByte&lt;EGameplayAbilityInputBinds::Type&gt; Command = EGameplayAbilityInputBinds::Ability1;</span><br><span class="line">      </span><br><span class="line">    <span class="built_in">UPROPERTY</span>(EditAnywhere, Category = BindInfo)  </span><br><span class="line">    TSubclassOf&lt;UGameplayAbility&gt; GameplayAbilityClass;  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>在 <code>GiveAbilities</code> 函数中，InputID会作为构造函数参数保存在 <code>FGameplayAbilitySpec</code> 中，这里就完成了GA与InputID的绑定。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">UGameplayAbilitySet::GiveAbilities</span><span class="params">(UAbilitySystemComponent* ASC)</span> <span class="type">const</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">const</span> FGameplayAbilityBindInfo&amp; BindInfo : Abilities)  </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (BindInfo.GameplayAbilityClass)  </span><br><span class="line">        &#123;</span><br><span class="line">            ASC-&gt;<span class="built_in">GiveAbility</span>(<span class="built_in">FGameplayAbilitySpec</span>(</span><br><span class="line">                BindInfo.GameplayAbilityClass,</span><br><span class="line">                <span class="number">1</span>,</span><br><span class="line">                (int32)BindInfo.Command)</span><br><span class="line">            );  </span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里InputID是int类型是为了方便策划在蓝图中定义自己的枚举来标识输入，蓝图枚举可以直接作为int参数传递到C++中。</p><p>在实际生产实现中，我们可以自己实现一套关联机制，只要最终我们能够将一个InputID保存在关联的 <code>FGameplayAbilitySpec</code> 中即可。</p><hr><h3 id="2-AbilitySystemComponent-与输入组件绑定"><a href="#2-AbilitySystemComponent-与输入组件绑定" class="headerlink" title="2. AbilitySystemComponent 与输入组件绑定"></a><strong>2. <code>AbilitySystemComponent</code> 与输入组件绑定</strong></h3><p>官方示例的实现在 <code>UAbilitySystemComponent::BindAbilityActivationToInputComponent</code> 中。这一步是让 <code>UAbilitySystemComponent</code> 监听所有依赖的输入事件，并以InputID调用 <code>UAbilitySystemComponent::AbilityLocalInputPressed</code> 与 <code>UAbilitySystemComponent::AbilityLocalInputReleased</code>。</p><p>比较特别的是 <code>GenericConfirmInputID</code> 与 <code>GenericCancelInputID</code>。这两个成员是用于需要二次确认的GA，比如释放时触发范围框选，需再次确认释放或者取消。这两个成员变量对应确认与取消的InputID。</p><p>同样，实际生产过程中我们可以自己重写这个机制。因为这个示例实现使用的是旧的输入系统，而现在大多使用[[增强输入系统|增强输入系统]]。自己实现这个机制只需要保证：</p><ul><li><p>在输入按下和抬起时，调用 <code>UAbilitySystemComponent::AbilityLocalInputPressed</code> 和 <code>UAbilitySystemComponent::AbilityLocalInputReleased</code> 并将InputID作为参数。</p></li><li><p>Confirm 和 Cancel 按钮按下时，调用 <code>UAbilitySystemComponent::LocalInputConfirm</code> 和 <code>UAbilitySystemComponent::LocalInputCancel</code>。</p></li><li><p>或者设置 <code>GenericConfirmInputID</code> 与 <code>GenericCancelInputID</code>。这种方式和上面的绑定选一种即可。</p></li></ul><hr><h3 id="3-输入触发逻辑"><a href="#3-输入触发逻辑" class="headerlink" title="3. 输入触发逻辑"></a><strong>3. 输入触发逻辑</strong></h3><p>收到按下输入后：</p><ul><li><p>首先判断 <code>GenericConfirmInputID</code> 或 <code>GenericCancelInputID</code> 是否有设置回调，如果有则只触发 Confirm 或 Cancel。</p></li><li><p>否则遍历所有InputID相同的 <code>FGameplayAbilitySpec</code>，如果其已经在运行则调用 <code>InputPressed</code>，并且发送 ReplicatedEvent - <code>EAbilityGenericReplicatedEvent::InputPressed</code>。</p></li><li><p>如果GA没有在运行，则调用 <code>TryActivateAbility</code></p></li></ul><p>收到抬起输入则只会触发 <code>InputReleased</code>，并且发送 ReplicatedEvent - <code>EAbilityGenericReplicatedEvent::InputReleased</code>。</p><hr><h3 id="4-输入事件的同步"><a href="#4-输入事件的同步" class="headerlink" title="4. 输入事件的同步"></a><strong>4. 输入事件的同步</strong></h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;GAS提供了一个可扩展的输入绑定机制，支持了包括输入绑定、输入同步、Confirm&amp;#x2F;Cancel等机制。默认实现中只提供了基础框架，并没有默认的接入流程，所以需要一定的定制开发才能完全使用。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;1-关联GA与InputID&quot;&gt;&lt;a </summary>
+      
+    
+    
+    
+    
+    <category term="数据结构" scheme="https://github.com/rorikonn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="GAS" scheme="https://github.com/rorikonn/tags/GAS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GAS系统-预测</title>
+    <link href="https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/Gameplay%20Ability%20System/GAS%E7%B3%BB%E7%BB%9F-%E9%A2%84%E6%B5%8B/"/>
+    <id>https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/Gameplay%20Ability%20System/GAS%E7%B3%BB%E7%BB%9F-%E9%A2%84%E6%B5%8B/</id>
+    <published>2025-07-31T16:00:00.000Z</published>
+    <updated>2025-08-01T12:45:36.162Z</updated>
+    
+    <content type="html"><![CDATA[<p>GAS的客户端预测系统。<strong>预测</strong>即在网络游戏中，客户端先自行相应输入等事件，以获得更及时的操作反馈，预测系统需要的处理的问题包括：</p><ol><li><p>预测失败后预测改动的回滚。</p></li><li><p>预测成功时，不会重复应用服务器下发的已经预测过的改动。</p></li><li><p>预测链的处理，即一个预测的内容引发了其他更多的预测。</p></li><li><p>预测的完整性，保证所有需要预测内容都正确的被预测了。</p></li><li><p>预测的修改覆盖由服务器同步的状态。</p></li></ol><hr><h3 id="1-GAS预测系统概述"><a href="#1-GAS预测系统概述" class="headerlink" title="1. GAS预测系统概述"></a><strong>1. GAS预测系统概述</strong></h3><p>GAS的预测系统 对业务逻辑透明，在Ability执行的时候，会自动预测其中能预测的部分，并处理好预测相关的逻辑。也正因此，只有部分内容支持预测。</p><ul><li><p>激活GA，包括链式激活，即一个预测的GA触发另外一个GA。</p></li><li><p>应用GE，只支持其中的 Attribute Modification 和 Gameplay Tag Modification，不支持 Attribute Executions，GE的移除和周期性效果也不支持预测。</p></li><li><p>蒙太奇。</p></li><li><p>位移，集成在移动组件中。</p></li></ul><hr><h3 id="2-GAS预测系统实现"><a href="#2-GAS预测系统实现" class="headerlink" title="2. GAS预测系统实现"></a><strong>2. GAS预测系统实现</strong></h3><p>预测系统的一个基础概念是 <strong>预测键（Prediction Key）</strong>，预测键本质是一个由客户端生成的唯一ID。客户端会将预测键发送给服务器，并将其预测的行为和预测产生的影响关联到这个预测键上。服务器可以回复给客户端<strong>接受 &#x2F; 拒绝</strong>这个预测键，并且将服务器产生的影响也关联到这个预测键上。</p><p><strong>注意</strong>：预测键总是可以从客户端发送到服务器，但是从服务器发送到客户端时，只会发给将这个预测键的发送方（将这个预测键发送给服务器的那个客户端），其他的客户端只会收到一个非法的预测键。相关逻辑在 <code>FPredictionKey::NetSerialize</code> 中实现。</p><hr><h4 id="GA的预测逻辑"><a href="#GA的预测逻辑" class="headerlink" title="- GA的预测逻辑"></a>- <strong>GA的预测逻辑</strong></h4><p>激活GA是首要的预测行为——它会生成最初的预测键。当客户端以预测的方式激活某个GA时，总是会显示的请求服务器，并且服务器会显示的回复。当一个GA被以预测的方式激活后（在服务器回复还没有发送之前），客户端存在”预测窗口“，在这个窗口期间，客户端可以自行预测GA产生的影响而不用询问服务器。预测窗口在调用 <code>ActivateAbility</code> 之后生效，在 <code>ActivateAbility</code> 的调用结束后失效。所以我们不能预测多帧的行为，在蓝图中的 <code>Timer</code> 或者 <code>Ability Task</code> 都会使预测窗口失效。</p><p><code>AbilitySystemComponent</code> 使用一系列方法在客户端与服务器之间通信GA的激活：<code>TryActivateAbility</code> -&gt; <code>ServerTryActivateAbility</code> -&gt; <code>ClientActivateAbility(failed/succeed)</code>。</p><ol><li><p>客户端调用 <code>TryActivateAbility</code>，它生成一个预测键，并且调用<code>ServerTryActivateAbility</code>。</p></li><li><p>客户端逻辑继续执行，将生成的预测键保存在 Ability 的 <code>ActivationInfo</code> 中并调用<code>ActivateAbility</code>。</p></li><li><p>在 <code>ActivateAbility</code> 的调用结束之前，所有产生的影响都需要与预测键关联。</p></li><li><p>服务器在 <code>ServerTryActivateAbility</code> 中决定GA是否执行成功，调用 <code>ClientActivateAbility(failed/succeed)</code> 并且将客户端发过来的预测键保存在 <code>UAbilitySystemComponent::ReplicatedPredictionKey</code>中。</p></li><li><p>如果客户端收到了<code>ClientAbilityFailed</code>，则会立刻结束GA，并且回滚预测键关联的所有改动。</p><ol><li><p>回滚通过 <code>FPredictionKeyDelegates</code> 和 <code>FPredictionKey::NewRejectedDelegate/NewCaughtUpDelegate/NewRejectOrCaughtUpDelegate</code> 注册回调来完成。</p></li><li><p><code>ClientAbilityFailed</code> 是唯一拒绝预测键的地方，所以我们的当前所有的预测都依赖于GA是否激活。</p></li></ol></li><li><p>如果服务器GA执行成功，客户端需要等待属性同步将预测键的成功信息同步下来（执行成功的RPC会立即下发，但是属性同步可能会延迟）。一旦 <code>ReplicatedPredictionKey</code> 同步完成，客户端就可以回滚所有相关的预测改动了。 </p><ul><li>在 <code>FReplicatedPredictionKeyItem::OnRep</code> 中查看预测键的确认逻辑。</li><li>在 <code>UAbilitySystemComponent::ReplicatedPredictionKeyMap</code> 中查看预测键实际是如何同步的。</li><li>在 <code>~FScopedPredictionWindow</code> 中查看服务器是如果确认预测键的。</li></ul></li></ol><hr><h4 id="GE的预测逻辑"><a href="#GE的预测逻辑" class="headerlink" title="- GE的预测逻辑"></a>- <strong>GE的预测逻辑</strong></h4><p>GE跟随GA被一起预测，不会单独的确认或拒绝</p><ol><li><p>GE只有在客户端有合法的预测键时才会被应用。</p></li><li><p>如果GE被预测了，那么其相关的属性、GameplayCue、GameplayTag都会被一起预测。</p></li><li><p>当一个 <code>FActiveGameplayEffect</code> 被创建的时候，会将预测键保存在里面 <code>FActiveGameplayEffect::PredictionKey</code>。</p></li><li><p>服务器也会将预测键放到其创建的 <code>FActiveGameplayEffect</code> 中，并一起同步下来。</p></li><li><p>当客户端收到包含合法的预测键的 <code>FActiveGameplayEffect</code> 时，会检查是否有相同预测键的对象存在，如果有则不会再次应用这个效果。这解决了预测的效果重复的问题。</p></li><li><p>同时，<code>FReplicatedPredictionKeyItem::OnRep</code> 确认预测键时，被预测的效果会被移除，同时也会再次检查预测键来决定是否需要执行其移除逻辑。</p></li></ol><p><code>FActiveGameplayEffectsContainer::ApplyGameplayEffectSpec</code> 注册了预测键被确认时的逻辑。</p><p>在<code>FActiveGameplayEffect::PostReplicatedAdd</code>，<code>FActiveGameplayEffect::PreReplicatedRemove</code> 和 <code>FActiveGameplayCue::PostReplicatedAdd</code>中查看预测键是怎么与GE、GC关联上的。</p><hr><h4 id="属性预测逻辑"><a href="#属性预测逻辑" class="headerlink" title="- 属性预测逻辑"></a>- <strong>属性预测逻辑</strong></h4><p>为了解决属性预测和属性同步互相覆盖的问题，我们<strong>预测改动而不是预测绝对值</strong>。并且把瞬时的修改当作永久持续性的修改，来解决回滚的问题。</p><p>同时我们把服务器同步的值当作”基础值“而不是”最终值“，并且在同步完成后，重新计算”最终值“。</p><ol><li><p>在预测时，将瞬时修改当作永久持续性的修改来处理。见 <code>UAbilitySystemComponent::ApplyGameplayEffectSpecToSelf</code>。</p></li><li><p>在属性同步下来时，<strong>总是</strong>调用 <code>RepNotify</code> 函数（而不是仅在值发生改变时调用，因为预测会提前改变属性）。使用<code>REPNOTIFY_Always</code>完成。</p></li><li><p>在 <code>RepNofity</code> 函数中，调用 <code>AbilitySystemComponent::ActiveGameplayEffects</code> 来基于新的”基础值“更新”最终值“。使用 <code>GAMEPLAYATTRIBUTE_REPNOTIFY</code> 宏完成。</p></li><li><p>其他的逻辑与GE同步类似：当预测键被确认时，预测的GE会被移除并回归到服务器下发的状态。</p></li></ol><hr><h4 id="GC的预测逻辑"><a href="#GC的预测逻辑" class="headerlink" title="- GC的预测逻辑"></a>- <strong>GC的预测逻辑</strong></h4><p>GE中触发的GC已经包含在GE的预测逻辑中了。除此之外，GC也能单独使用，相关函数（<code>UAbilitySystemComponent::ExecuteGameplayCue</code> 等）也考虑了预测逻辑。</p><ol><li><p>在 <code>UAbilitySystemComponent::ExecuteGameplayCue</code> 函数中，如果是Authority的会直接广播，否则如果有合法的预测键，则会进行预测。</p></li><li><p>在收到GC广播时，如果包含了合法的预测键，则不会执行，假设客户端之前已经预测过了。</p></li></ol><hr><h4 id="Triggered-Data预测逻辑"><a href="#Triggered-Data预测逻辑" class="headerlink" title="- Triggered Data预测逻辑"></a>- <strong>Triggered Data预测逻辑</strong></h4><p>Triggered Data 用于触发GA。其核心逻辑与 <code>ActivateAbility</code> 代码路径一致，区别在于GA并非由玩家输入触发，而是其他游戏逻辑事件驱动。客户端可以预测这些事件从而预测GA。</p><p>但是存在以下细节：</p><ul><li><p>服务器不会等客户端通知，而是会同步的执行事件触发。服务器会维护一个通过预测触发过的GA列表。当收到触发的GA的 <code>TryActivate</code> 时，会检查是否已经有一个正在运行了，并返回相关信息。</p></li><li><p>回滚逻辑还没有处理。</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;GAS的客户端预测系统。&lt;strong&gt;预测&lt;/strong&gt;即在网络游戏中，客户端先自行相应输入等事件，以获得更及时的操作反馈，预测系统需要的处理的问题包括：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;预测失败后预测改动的回滚。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;预测成功时，不会重</summary>
+      
+    
+    
+    
+    
+    <category term="虚幻引擎" scheme="https://github.com/rorikonn/tags/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E/"/>
+    
+    <category term="GAS" scheme="https://github.com/rorikonn/tags/GAS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GAS系统</title>
+    <link href="https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/Gameplay%20Ability%20System/GAS%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/Gameplay%20Ability%20System/GAS%E7%B3%BB%E7%BB%9F/</id>
+    <published>2025-07-31T16:00:00.000Z</published>
+    <updated>2025-08-01T13:04:40.820Z</updated>
+    
+    
+    
+    
+    
+    <category term="虚幻引擎" scheme="https://github.com/rorikonn/tags/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E/"/>
+    
+    <category term="GAS" scheme="https://github.com/rorikonn/tags/GAS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Modal</title>
+    <link href="https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/Modal/"/>
+    <id>https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/Modal/</id>
+    <published>2025-07-31T16:00:00.000Z</published>
+    <updated>2025-08-01T13:04:26.370Z</updated>
+    
+    <content type="html"><![CDATA[<p>在游戏开发中，<strong>Modal</strong>（模态）指的是<strong>一种强制用户优先处理的交互模式</strong>，通常表现为覆盖在游戏界面顶层的弹窗或对话框。当弹窗被放置在 <code>UI.Layer.Modal</code> 层级时，其核心含义是：</p><h3 id="1-Modal-的定义与特性"><a href="#1-Modal-的定义与特性" class="headerlink" title="1. Modal 的定义与特性"></a><strong>1. Modal 的定义与特性</strong></h3><ul><li><p><strong>阻断性交互</strong>：Modal 弹窗会阻止玩家与游戏其他部分的交互，直到弹窗被关闭或用户完成指定操作（如确认、取消等）。</p><ul><li>例如：游戏中的“退出确认”弹窗必须处理后才能继续游戏。</li></ul></li><li><p><strong>焦点集中</strong>：强制玩家注意力集中在当前弹窗内容上，避免背景操作干扰。</p></li><li><p><strong>层级隔离</strong>：<code>UI.Layer.Modal</code> 表示该弹窗位于独立的渲染层级，通常通过高 <code>z-index</code> 值覆盖在其他 UI 元素之上。</p></li></ul><h3 id="2-游戏中的-Modal-应用场景"><a href="#2-游戏中的-Modal-应用场景" class="headerlink" title="2. 游戏中的 Modal 应用场景"></a><strong>2. 游戏中的 Modal 应用场景</strong></h3><ul><li><p><strong>关键决策</strong>：如存档覆盖确认、道具购买确认等不可逆操作。</p></li><li><p><strong>紧急通知</strong>：网络断开、系统错误等需立即处理的提示。</p></li><li><p><strong>任务中断</strong>：主线剧情对话或任务指引弹窗，要求玩家阅读后继续。</p></li></ul><h3 id="3-技术实现与设计规范"><a href="#3-技术实现与设计规范" class="headerlink" title="3. 技术实现与设计规范"></a><strong>3. 技术实现与设计规范</strong></h3><ul><li><p><strong>层级管理</strong>：</p><ul><li><p><code>UI.Layer.Modal</code> 需确保弹窗始终位于最顶层，可能通过引擎的 UI 堆栈系统（如 Unity 的 <code>Canvas</code> 层级或 Unreal 的 <code>ZOrder</code>）实现。</p></li><li><p>若嵌套其他模态组件（如 Drawer 内嵌 Modal），需手动调整 <code>z-index</code> 避免遮挡。</p></li></ul></li><li><p><strong>关闭机制</strong>：</p><ul><li><p>必须提供明确的关闭途径（如“X”按钮、ESC 键、点击遮罩层）。</p></li><li><p>部分游戏会禁用关闭按钮，强制玩家完成操作（如教程步骤）。</p></li></ul></li></ul><h3 id="4-争议与设计权衡"><a href="#4-争议与设计权衡" class="headerlink" title="4. 争议与设计权衡"></a><strong>4. 争议与设计权衡</strong></h3><ul><li><p><strong>用户体验争议</strong>：</p><ul><li><p>过度使用 Modal 可能打断游戏沉浸感，被批评为“反模式”（Anti-Pattern）。</p></li><li><p>替代方案：非模态提示（如屏幕边缘的浮动通知）或“撤销”功能。</p></li></ul></li><li><p><strong>性能考量</strong>：</p><ul><li>部分引擎中，Modal 弹窗可能阻塞主线程（如浏览器环境的 <code>alert</code>），需异步处理以避免卡顿。</li></ul></li></ul><h3 id="5-与其他-UI-层级的区别"><a href="#5-与其他-UI-层级的区别" class="headerlink" title="5. 与其他 UI 层级的区别"></a><strong>5. 与其他 UI 层级的区别</strong></h3><ul><li><p><strong>Modal vs Non-Modal</strong>：</p><ul><li>非模态弹窗（如帮助提示）允许玩家同时与背景交互，而 Modal 强制独占焦点。</li></ul></li><li><p><strong>游戏 UI 分层示例</strong>：</p><ul><li><p><code>UI.Layer.Background</code>（静态背景）</p></li><li><p><code>UI.Layer.Default</code>（常规 HUD）</p></li><li><p><code>UI.Layer.Popup</code>（非模态提示）</p></li><li><p><code>UI.Layer.Modal</code>（强制交互弹窗）。</p></li></ul></li></ul><hr><p>通过合理使用 <code>UI.Layer.Modal</code>，开发者可以平衡游戏流程控制与玩家自由度，但需谨慎避免滥用导致体验下降。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在游戏开发中，&lt;strong&gt;Modal&lt;/strong&gt;（模态）指的是&lt;strong&gt;一种强制用户优先处理的交互模式&lt;/strong&gt;，通常表现为覆盖在游戏界面顶层的弹窗或对话框。当弹窗被放置在 &lt;code&gt;UI.Layer.Modal&lt;/code&gt; 层级时，其核心含义是</summary>
+      
+    
+    
+    
+    
+    <category term="专业术语" scheme="https://github.com/rorikonn/tags/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DeadZone</title>
+    <link href="https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/DeadZone/"/>
+    <id>https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/DeadZone/</id>
+    <published>2025-07-31T16:00:00.000Z</published>
+    <updated>2025-08-01T13:04:08.767Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>摇杆 DeadZone（死区）</strong> 是手柄或摇杆输入设备中的一个重要概念，用于定义摇杆中心附近的一个无效输入区域。当摇杆处于该区域内时，系统会忽略其输入信号，以避免因硬件误差或轻微偏移导致的误操作。以下是详细解析：</p><hr><h3 id="1-DeadZone-的核心定义"><a href="#1-DeadZone-的核心定义" class="headerlink" title="1. DeadZone 的核心定义"></a><strong>1. DeadZone 的核心定义</strong></h3><ul><li><p><strong>作用</strong>：消除摇杆因物理磨损、弹簧回弹不精准或制造公差产生的微小偏移信号（即“漂移”），确保只有明确的有效操作才会被识别。</p></li><li><p><strong>表现形式</strong>：</p><ul><li><p><strong>中心死区</strong>：摇杆中心附近的一个圆形或方形区域，输入信号被屏蔽（常见于手柄摇杆）。</p></li><li><p><strong>十字死区（十字吸附）</strong>：摇杆在特定方向（如上下左右）移动时，数值会突然跳转到固定值，形成“吸附”效果（多见于传统格斗游戏手柄）。</p></li></ul></li></ul><hr><h3 id="2-DeadZone-的类型与算法"><a href="#2-DeadZone-的类型与算法" class="headerlink" title="2. DeadZone 的类型与算法"></a><strong>2. DeadZone 的类型与算法</strong></h3><h4 id="1-圆形死区（Circular-Deadzone）"><a href="#1-圆形死区（Circular-Deadzone）" class="headerlink" title="(1) 圆形死区（Circular Deadzone）"></a><strong>(1) 圆形死区（Circular Deadzone）</strong></h4><ul><li><p><strong>原理</strong>：以摇杆中心为圆心，设定一个半径（ DeadZoneRadius ），只有摇杆偏移向量的模长（距离）超过该半径时，输入才有效。</p><ul><li><strong>计算公式</strong>：$$r &#x3D; \sqrt{x^2 + y^2}​$$<br>  若  $r ≤ DeadZoneRadius$ ，输入被忽略；否则重新映射到有效范围：$$<br>  \text{mapped_x} &#x3D; \frac{x}{r} \cdot \frac{r - \text{DeadZoneRadius}}{1 - \text{DeadZoneRadius}}$$</li></ul></li><li><p><strong>优点</strong>：</p><ul><li>更符合摇杆的物理运动轨迹（圆形），操作更自然。</li><li>避免方形死区对角线的灵敏度不一致问题。</li></ul></li></ul><h4 id="2-方形死区（Square-Deadzone）"><a href="#2-方形死区（Square-Deadzone）" class="headerlink" title="(2) 方形死区（Square Deadzone）"></a><strong>(2) 方形死区（Square Deadzone）</strong></h4><ul><li><p><strong>原理</strong>：基于摇杆的X&#x2F;Y轴独立判断死区范围（如    |x| &lt; 0.1  且    |y| &lt; 0.1  时输入无效）。</p></li><li><p><strong>缺点</strong>：斜向操作时需更大的位移才能触发，导致灵敏度不均。</p></li></ul><hr><h3 id="3-DeadZone-的实际影响"><a href="#3-DeadZone-的实际影响" class="headerlink" title="3. DeadZone 的实际影响"></a><strong>3. DeadZone 的实际影响</strong></h3><ul><li><p><strong>游戏体验</strong>：</p><ul><li><p><strong>FPS&#x2F;赛车游戏</strong>：过大的死区会导致细微操作无法识别（如精准瞄准或微调转向），需反复推拉摇杆。</p></li><li><p><strong>RPG&#x2F;格斗游戏</strong>：适度的死区可避免视角漂移或误触，提升操作稳定性。</p></li></ul></li><li><p><strong>硬件寿命</strong>：</p><ul><li>碳膜摇杆因磨损易出现漂移，死区可缓解此问题；霍尔摇杆（无物理接触）通常可设置更小的死区。</li></ul></li></ul><hr><h3 id="4-DeadZone-的设置建议"><a href="#4-DeadZone-的设置建议" class="headerlink" title="4. DeadZone 的设置建议"></a><strong>4. DeadZone 的设置建议</strong></h3><ul><li><p><strong>调整依据</strong>：</p><ul><li><p><strong>游戏类型</strong>：射击游戏推荐死区半径≤5%，赛车游戏需平衡线性与灵敏度。</p></li><li><p><strong>硬件特性</strong>：老旧手柄可适当增大死区以补偿磨损。</p></li></ul></li><li><p><strong>工具支持</strong>：</p><ul><li><p>游戏内设置（如《极品飞车》允许自定义死区范围）。</p></li><li><p>第三方软件（如 Steam 输入配置器）可覆盖硬件默认值。</p></li></ul></li></ul><hr><h3 id="5-扩展：其他场景中的-DeadZone"><a href="#5-扩展：其他场景中的-DeadZone" class="headerlink" title="5. 扩展：其他场景中的 DeadZone"></a><strong>5. 扩展：其他场景中的 DeadZone</strong></h3><ul><li><p><strong>触控设备</strong>：如手机导航栏的防误触死区，避免快速输入时误触 Home 键。</p></li><li><p><strong>工业控制</strong>：Simulink 中的 DeadZone 模块用于过滤传感器噪声。</p></li></ul><hr><p>通过合理配置 DeadZone，可以显著提升输入设备的精度与用户体验，但其设置需权衡硬件特性与操作需求。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;摇杆 DeadZone（死区）&lt;/strong&gt; 是手柄或摇杆输入设备中的一个重要概念，用于定义摇杆中心附近的一个无效输入区域。当摇杆处于该区域内时，系统会忽略其输入信号，以避免因硬件误差或轻微偏移导致的误操作。以下是详细解析：&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 i</summary>
+      
+    
+    
+    
+    
+    <category term="专业术语" scheme="https://github.com/rorikonn/tags/%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>行为树</title>
+    <link href="https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E8%A1%8C%E4%B8%BA%E6%A0%91/"/>
+    <id>https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E8%A1%8C%E4%B8%BA%E6%A0%91/</id>
+    <published>2025-07-31T16:00:00.000Z</published>
+    <updated>2025-08-01T13:03:36.791Z</updated>
+    
+    
+    
+    
+    
+    <category term="虚幻引擎" scheme="https://github.com/rorikonn/tags/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>增强输入系统</title>
+    <link href="https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%A2%9E%E5%BC%BA%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%A2%9E%E5%BC%BA%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F/</id>
+    <published>2025-07-31T16:00:00.000Z</published>
+    <updated>2025-08-01T13:05:06.708Z</updated>
+    
+    <content type="html"><![CDATA[<hr><h3 id="玩家自定义按键"><a href="#玩家自定义按键" class="headerlink" title="玩家自定义按键"></a>玩家自定义按键</h3><ul><li><p>UI处理流程参考<code>ULyraSettingKeyboardInput</code></p></li><li><p>调用<code>UEnhancedInputUserSettings::MapPlayerKey</code>来应用新的按键绑定。</p></li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">ULyraSettingKeyboardInput::ChangeBinding</span><span class="params">(int32 InKeyBindSlot, FKey NewKey)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!NewKey.<span class="built_in">IsGamepadKey</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        FMapPlayerKeyArgs Args = &#123;&#125;;</span><br><span class="line">        Args.MappingName = ActionMappingName;</span><br><span class="line">        Args.Slot = (EPlayerMappableKeySlot) (<span class="built_in">static_cast</span>&lt;uint8&gt;(InKeyBindSlot));</span><br><span class="line">        Args.NewKey = NewKey;</span><br><span class="line">   </span><br><span class="line">        <span class="keyword">if</span> (UEnhancedInputUserSettings* Settings = <span class="built_in">GetUserSettings</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            FGameplayTagContainer FailureReason;  </span><br><span class="line">            Settings-&gt;<span class="built_in">MapPlayerKey</span>(Args, FailureReason);  </span><br><span class="line">            <span class="built_in">NotifySettingChanged</span>(EGameSettingChangeReason::Change);  </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>调用<code>UEnhancedInputUserSettings::ResetAllPlayerKeysInRow</code>来恢复默认按键。</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">ULyraSettingKeyboardInput::ResetToDefault</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (UEnhancedInputUserSettings* Settings = <span class="built_in">GetUserSettings</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        FMapPlayerKeyArgs Args = &#123;&#125;;</span><br><span class="line">        Args.MappingName = ActionMappingName;</span><br><span class="line">        </span><br><span class="line">        FGameplayTagContainer FailureReason;</span><br><span class="line">        Settings-&gt;<span class="built_in">ResetAllPlayerKeysInRow</span>(Args, FailureReason);</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NotifySettingChanged</span>(EGameSettingChangeReason::Change);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;hr&gt;
+&lt;h3 id=&quot;玩家自定义按键&quot;&gt;&lt;a href=&quot;#玩家自定义按键&quot; class=&quot;headerlink&quot; title=&quot;玩家自定义按键&quot;&gt;&lt;/a&gt;玩家自定义按键&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;UI处理流程参考&lt;code&gt;ULyraSettingKeyboardIn</summary>
+      
+    
+    
+    
+    
+    <category term="虚幻引擎" scheme="https://github.com/rorikonn/tags/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>虚拟摇杆</title>
+    <link href="https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E8%99%9A%E6%8B%9F%E6%91%87%E6%9D%86/"/>
+    <id>https://github.com/rorikonn/2025/08/01/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E8%99%9A%E6%8B%9F%E6%91%87%E6%9D%86/</id>
+    <published>2025-07-31T16:00:00.000Z</published>
+    <updated>2025-08-01T13:03:54.723Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="应用输入"><a href="#应用输入" class="headerlink" title="应用输入"></a>应用输入</h2><p>在<code>SVirtualJoystick::Tick</code>中，通过<code>FSlateApplication::Get().OnControllerButtonPressed</code>模拟按键输入</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;应用输入&quot;&gt;&lt;a href=&quot;#应用输入&quot; class=&quot;headerlink&quot; title=&quot;应用输入&quot;&gt;&lt;/a&gt;应用输入&lt;/h2&gt;&lt;p&gt;在&lt;code&gt;SVirtualJoystick::Tick&lt;/code&gt;中，通过&lt;code&gt;FSlateApplicatio</summary>
+      
+    
+    
+    
+    
+    <category term="虚幻引擎" scheme="https://github.com/rorikonn/tags/%E8%99%9A%E5%B9%BB%E5%BC%95%E6%93%8E/"/>
     
   </entry>
   
