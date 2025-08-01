@@ -69,8 +69,11 @@ GAS的预测系统 对业务逻辑透明，在Ability执行的时候，会自动
     2. `ClientAbilityFailed` 是唯一拒绝预测键的地方，所以我们的当前所有的预测都依赖于GA是否激活。
 
 6. 如果服务器GA执行成功，客户端需要等待属性同步将预测键的成功信息同步下来（执行成功的RPC会立即下发，但是属性同步可能会延迟）。一旦 `ReplicatedPredictionKey` 同步完成，客户端就可以回滚所有相关的预测改动了。 
+
     - 在 `FReplicatedPredictionKeyItem::OnRep` 中查看预测键的确认逻辑。
+
     - 在 `UAbilitySystemComponent::ReplicatedPredictionKeyMap` 中查看预测键实际是如何同步的。
+
     - 在 `~FScopedPredictionWindow` 中查看服务器是如果确认预测键的。
 
 ---
