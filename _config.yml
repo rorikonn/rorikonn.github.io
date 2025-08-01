@@ -24,6 +24,9 @@ copyright:
   name:
   url:
 
+ignore:
+  - "**/source/_post/模板"
+
 theme: brewski
 theme_config:
   logo:
