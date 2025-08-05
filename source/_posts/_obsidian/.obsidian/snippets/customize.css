@@ -1,0 +1,5 @@
+body { --file-line-width: 768px; }
+
+div[data-path="模板"] {
+    display: none;
+}

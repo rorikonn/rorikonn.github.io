@@ -3,5 +3,6 @@
   "readableLineLength": true,
   "useTab": false,
   "alwaysUpdateLinks": true,
-  "strictLineBreaks": false
+  "strictLineBreaks": false,
+  "userIgnoreFilters": null
 }

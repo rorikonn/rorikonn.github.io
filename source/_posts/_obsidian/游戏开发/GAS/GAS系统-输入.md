@@ -65,7 +65,7 @@ void UGameplayAbilitySet::GiveAbilities(UAbilitySystemComponent* ASC) const
 
 比较特别的是 `GenericConfirmInputID` 与 `GenericCancelInputID`。这两个成员是用于需要二次确认的GA，比如释放时触发范围框选，需再次确认释放或者取消。这两个成员变量对应确认与取消的InputID。
 
-同样，实际生产过程中我们可以自己重写这个机制。因为这个示例实现使用的是旧的输入系统，而现在大多使用[[增强输入系统|增强输入系统]]。自己实现这个机制只需要保证：
+同样，实际生产过程中我们可以自己重写这个机制。因为这个示例实现使用的是旧的输入系统，而现在大多使用[[增强输入系统]]。自己实现这个机制只需要保证：
 
 - 在输入按下和抬起时，调用 `UAbilitySystemComponent::AbilityLocalInputPressed` 和 `UAbilitySystemComponent::AbilityLocalInputReleased` 并将InputID作为参数。
 
@@ -90,5 +90,11 @@ void UGameplayAbilitySet::GiveAbilities(UAbilitySystemComponent* ASC) const
 ---
 
 ### **4. 输入事件的同步**
+
+输入事件的同步分两个部分：
+
+- **ServerSetInputPressed**，在Ability的 `bReplicateInputDirectly` 设置的情况下，客户端输入按下后会通过RPC调用服务器的 `AbilitySpecInputPressed`。
+
+- 通过[[GAS系统-事件]]系统通知到服务器。注意这个同步并不是自动完成的，客户端收到输入事件后，只会调用客户端的事件回调，如果这个事件需要同步到服务器，则需要客户端自己在回调中通过 `ServerSetReplicatedEvent` 将事件同步到服务器。
 
 
